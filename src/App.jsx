@@ -5,9 +5,6 @@ import { NavBar } from './components/Navbar'  /* ---->Esto va en todas las pági
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
       <NavBar/>
     </>
   )
