@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { TfiAlignJustify } from "react-icons/tfi";
-import { TfiClose } from "react-icons/tfi";
+import { TfiClose } from "react-icons/tfi"; 
+import { useOption } from "../hooks/useOption";
+import { Link } from 'react-router-dom'; 
+
+/*HACER CUSTOM HOOK Y PROBARLO AQUI PARA NAV GRANDE QUE SE QUEDE MARCADO
+Y HACER COMPONENTE H1 DINÁMICO */
 
 export const NavBar = () => {
     //Estado menú hamburgesa:
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false); 
+    const { option, changeOption } = useOption(); 
 
     const Pages = [
         { path: '../pages/Home', label: 'Inicio'},
@@ -16,40 +22,49 @@ export const NavBar = () => {
 
     return(
         <>
-            <div className="flex justify-end bg-black">
-            <nav className={`transition-transform duration-300 ease-in-out ${isOpen ? 'transform translate-x-0 h-screen w-1/4' : 'transform -translate-x-full'} lg:w-full lg:translate-x-0 lg:block`}>
-                {/* Menú hamburguesa: */}
-                <div className="flex justify-end p-4 transition-all duration-300 ease-in-out">
-                    <button className="lg:hidden w-14 h-14 p-4 relative" onClick={ () => setIsOpen(!isOpen)}>
-                    <TfiClose 
-                        className={`m-4 transition-opacity duration-500 ease-in-out absolute ${isOpen ? 'opacity-100' : 'opacity-0'}`} 
-                        size={40} 
-                        />
-                        {/* Icono de menú hamburguesa */}
-                    <TfiAlignJustify 
-                        className={`m-4 transition-opacity duration-500 ease-in-out absolute ${isOpen ? 'opacity-0' : 'opacity-100'}`} 
-                        size={40} 
-                    />
-                    </button>
-                </div>
+            {/* Menú hamburguesa (fuera del nav, para que no se mueva con el menú) */}
+            <div className="absolute z-1 top-4 right-4 lg:hidden">
+                <button className="lg:hidden w-14 h-14 relative p-4" onClick={() => setIsOpen(!isOpen)}>
+                <TfiClose 
+                    className={`absolute ${isOpen ? 'block' : 'hidden'}`} 
+                    size={40} 
+                />
+                {/* Icono de menú hamburguesa */}
+                <TfiAlignJustify 
+                    className={`absolute ${isOpen ? 'hidden' : 'block'}`} 
+                    size={40} 
+                />
+                </button>
+            </div>
+
+            {/* FONDO TRANSPARENTE SI EL MENÚ ESTA ABIERTO: */}
+            <div className={`${isOpen ? "w-full h-screen bg-transparent" : "hidden"} lg:hidden`}>
+                holi
+            </div>
+
+            {/* NAV */}
+            {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
+            <nav className={` bg-white h-screen fixed right-0 top-0 transition-transform duration-600 ease-in-out w-52
+                ${isOpen ? "translate-x-0" : "translate-x-full"} lg:w-full lg:h-8 lg:translate-x-0`}>
+                    
+              
 
                 {/* Menú desplegable de derecha a izquierda: */}
                 <ul className={`
                                 ${isOpen ? "block" : "hidden"} 
-                                flex flex-col 
-                                lg:flex lg:justify-center lg:gap-x-10 lg:flex-row
+                                flex flex-col items-center  justify-center h-screen justify-evenly
+                                lg:flex lg:justify-center lg:gap-x-10 lg:flex-row lg:h-auto
                                 `}>
                     {Pages.map(({ path, label }) => (
-                        <li className="" key={ path }>
-                            <a href={ path } className="lg:text-2xl">
-                                { label }
-                            </a>
+                        <li key={ path }>
+                            <Link onClick={ () => changeOption(label)} to={ path }  className={`text-xl lg:text-2xl
+                                ${option === label ? "text-yellow-800" : "text-green-600"}`}> { label } 
+                            </Link>
                         </li>
                     ))}
                 </ul>
 
             </nav>
-            </div>
         </>
     )
 }
