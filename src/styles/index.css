@@ -1,7 +1,21 @@
 @import "tailwindcss" ; 
 
+/* Modo claro */
 :root {
+  --color-fondo: oklch(0.968 0.007 247.896);
+  --color-tarjetas: #f3f3f3;
+  --color-texto: oklch(0.37 0.013 285.805);
+  --color-acento: #00A8E8;
+  --color-morado: #8A2BE2;
+}
 
+/* Modo oscuro */
+.dark {
+  --color-fondo: oklch(0.21 0.006 285.885);
+  --color-tarjetas: #1E1E1E;
+  --color-texto: oklch(0.704 0.04 256.788);
+  --color-acento: #00A8E8;
+  --color-morado: #8A2BE2;
 }
 
 /* ESTILOS GLOBALES, se importa en main.jsx */
@@ -13,9 +27,11 @@
 /* Estilos globales */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #000000;
-  color: #333;
-  height: 100vh;                      
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  height: 100vh; 
+  /* Transition para el cambio de tema: */
+  transition: background-color 0.8s ease, color 0.8s ease;         
 }
 
 a {
