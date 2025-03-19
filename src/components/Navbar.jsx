@@ -37,13 +37,13 @@ export const NavBar = () => {
 
             {/* FONDO TRANSPARENTE SI EL MENÚ ESTA ABIERTO: */}
             <div className={`${isOpen ? "w-full h-screen bg-transparent" : "hidden"} lg:hidden`}>
-                holi
+             
             </div>
 
             {/* NAV */}
             {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
-            <nav className={` bg-white h-screen fixed right-0 top-0 transition-transform duration-600 ease-in-out w-52
-                ${isOpen ? "translate-x-0" : "translate-x-full"} lg:w-full lg:h-8 lg:translate-x-0`}>
+            <nav className={` bg-white  fixed right-0 top-0 transition-transform duration-600 ease-in-out w-52
+                ${isOpen ? "translate-x-0 h-screen" : "translate-x-full"} lg:w-full lg:h-8 lg:translate-x-0`}>
                     
               
 
