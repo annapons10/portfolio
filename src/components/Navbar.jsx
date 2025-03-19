@@ -4,13 +4,11 @@ import { TfiClose } from "react-icons/tfi";
 import { useOption } from "../hooks/useOption";
 import { Link } from 'react-router-dom'; 
 
-/*HACER CUSTOM HOOK Y PROBARLO AQUI PARA NAV GRANDE QUE SE QUEDE MARCADO
-Y HACER COMPONENTE H1 DINÁMICO */
 
 export const NavBar = () => {
     //Estado menú hamburgesa:
     const [isOpen, setIsOpen] = useState(false); 
-    const { option, changeOption } = useOption(); 
+    const { option } = useOption();  
 
     const Pages = [
         { path: '../pages/Home', label: 'Inicio'},
@@ -57,8 +55,9 @@ export const NavBar = () => {
                                 `}>
                     {Pages.map(({ path, label }) => (
                         <li key={ path }>
-                            <Link onClick={ () => changeOption(label)} to={ path }  className={`text-xl lg:text-2xl
-                                ${option === label ? "text-yellow-800" : "text-green-600"}`}> { label } 
+                            <Link  to={ path }  className={`text-xl lg:text-2xl 
+                            /* TRABAJAR EN ESTILO CUANDO ESTA CLICKEADO: */
+                                ${option === label ? "font-bold" : ""}`}> { label } 
                             </Link>
                         </li>
                     ))}
