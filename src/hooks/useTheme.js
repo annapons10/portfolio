@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export const useTheme = () => {
-    const saveTheme = localStorage.getItem("theme") || "ligth"; 
+    const saveTheme = localStorage.getItem("theme") || "light"; 
     const [theme, setTheme] = useState(saveTheme);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export const useTheme = () => {
     }, [theme])
 
     const changeTheme = () => {
-        const newTheme = theme === "ligth" ?  'dark' : 'ligth'; 
+        const newTheme = theme === "light" ?  'dark' : 'light'; 
         setTheme(newTheme);
         console.log(`este es el tema ${newTheme}`);
     }

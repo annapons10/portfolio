@@ -1,21 +1,28 @@
 @import "tailwindcss" ; 
 
-/* Modo claro */
-:root {
+
+
+@import "tailwindcss";
+/* MODO CLARO: */
+@theme {
   --color-fondo: oklch(0.968 0.007 247.896);
-  --color-tarjetas: #f3f3f3;
+  --color-fondo: oklch(0.968 0.007 247.896);
+  --color-tarjetas: green;
   --color-texto: oklch(0.37 0.013 285.805);
   --color-acento: #00A8E8;
   --color-morado: #8A2BE2;
+  /* Hacer linear gradient separador de secciones: */
+  --color-gradient: linear-gradient(to right, #985 0%, #854885 50%, #985 100%);
 }
 
 /* Modo oscuro */
-.dark {
+ .dark {
   --color-fondo: oklch(0.21 0.006 285.885);
-  --color-tarjetas: #1E1E1E;
+  --color-tarjetas: yellow;
   --color-texto: oklch(0.704 0.04 256.788);
   --color-acento: #00A8E8;
   --color-morado: #8A2BE2;
+  --color-gradient: linear-gradient(to right, #ffffff00 0%, #ffffff80 50%, #ffffff00 100%);
 }
 
 /* ESTILOS GLOBALES, se importa en main.jsx */
@@ -31,10 +38,16 @@ body {
   color: var(--color-texto);
   height: 100vh; 
   /* Transition para el cambio de tema: */
-  transition: background-color 0.8s ease, color 0.8s ease;         
+  transition: background-color 0.8s ease, color 0.8s ease;      
+  height: auto;   
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* CLASE PARA LINEAR GRADIENT: */
+.bg-separador {
+  background: var(--color-gradient);
 }

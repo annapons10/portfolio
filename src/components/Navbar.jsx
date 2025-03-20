@@ -2,10 +2,11 @@ import { useState } from "react";
 import { TfiAlignJustify } from "react-icons/tfi";
 import { TfiClose } from "react-icons/tfi"; 
 import { useOption } from "../hooks/useOption";
-import { Link } from 'react-router-dom'; 
+import { HashLink } from 'react-router-hash-link'; 
 import { BsMoon } from "react-icons/bs";
 import { BsSun } from "react-icons/bs";
 import { useTheme }  from "../hooks/useTheme";
+import { Pages } from "../data/pageLinks";
 
 
 export const NavBar = () => {
@@ -14,23 +15,23 @@ export const NavBar = () => {
     //Estado menú hamburgesa:
     const [isOpen, setIsOpen] = useState(false); 
     //Estado para transición al cerrar:
-    const [isClosing, setIsClosing] = useState(false);
+    const [isClosing, setIsClosing] = useState(true);
     //Custom hook para saber que opción esta clickeada del navbar:
-    const { option } = useOption();   
-
-    const Pages = [
-        { path: '../pages/Home', label: 'Inicio'},
-        { path: '../pages/Projects', label: 'Proyectos'},
-        { path: '../pages/Technologies', label: 'Tecnologías'},
-        { path: '../pages/Contact', label: 'Contacto'}
-    ];
-
+    const { option } = useOption(); 
 
     return(
         <>
             {/* Menú hamburguesa (fuera del nav, para que no se mueva con el menú) */}
             <div className="absolute z-1 top-4 right-4 lg:hidden">
-                <button className="lg:hidden w-14 h-14 relative p-4" onClick={() => setIsOpen(!isOpen)}>
+                <button className="lg:hidden w-14 h-14 relative p-4" onClick={() =>{
+                   //Los estados son asíncronos, realizo una función para asegurarme que se cambian correctamente el setIsOpen y setIsClosing.  
+                   //set..Pueden recibir funciones como parámetro.
+                   setIsOpen((prev) => {
+                        const newOpen = !prev;
+                        setIsClosing(!newOpen);
+                        return newOpen;
+                   });
+                }}>
                 <TfiClose 
                     className={`absolute ${isOpen ? 'block' : 'hidden'}`} 
                     size={40} 
@@ -46,8 +47,8 @@ export const NavBar = () => {
             {/* Botón cambio de theme: */}
             <div className="absolute z-1 top-2 left-4 ml-6">
                 <button className="relative" onClick={ () => {changeTheme ()}}>
-                    <BsMoon className={`text-4xl absolute  ${theme === "ligth" ? "block" : "hidden"}`} />
-                    <BsSun className={`text-5xl absolute ${theme === "ligth" ? "hidden" : "block"}`} />
+                    <BsMoon className={`text-4xl absolute  ${theme === "light" ? "block" : "hidden"}`} />
+                    <BsSun className={`text-5xl absolute ${theme === "light" ? "hidden" : "block"}`} />
                 </button>
             </div>
 
@@ -71,10 +72,14 @@ export const NavBar = () => {
                                 `}>
                     {Pages.map(({ path, label }) => (
                         <li key={ path }>
-                            <Link onClick={() => setIsOpen(!isOpen)} to={ path }  className={`text-xl lg:text-2xl 
-                            /* TRABAJAR EN ESTILO CUANDO ESTA CLICKEADO: */
-                                ${option === label ? "font-bold" : ""}`}> { label } 
-                            </Link>
+                            <HashLink
+                                smooth
+                                onClick={() => setIsOpen(!isOpen)}
+                                to={ path }  // o el id correspondiente de la sección
+                                className={`text-xl lg:text-2xl ${option === label ? "font-bold" : ""}`}
+                            >
+                                { label }
+                            </HashLink>
                         </li>
                     ))}
                 </ul>

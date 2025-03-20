@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 
@@ -10,25 +9,26 @@ export function useOption (){
 
     /* Quiero que la option cambie no por un click si no por el cambio de la URL: */
     useEffect(() => {
-        const path = location.pathname;
-        const namePath = getNamePath(path);
-        console.log(`este es el path ${path}`);
-        setOption(namePath);
-        console.log(namePath); 
+        const path = location.hash; //Este no accede  a la URL, accede al hash #. 
+        
+        console.log("Hash actual:", path); // Asegúrate de que el hash es correcto
 
-    },[location.pathname]) //Se ejecuta cuando la URL cambia. 
+        const namePath = getNamePath(path);
+        console.log("Nombre mapeado:", namePath); // Asegúrate de que se está mapeando correctamente
+        setOption(namePath);
+
+    },[location.hash]) //Se ejecuta cuando la URL cambia. 
 
     return { option }
 }
 
 /* Función para extraer de la ruta el nombre: */
 const getNamePath = (path) => {
-    console.log(`path en getname ${path}`);
     const Pages = {
-        "/": "Inicio",
-        "/pages/Projects": "Proyectos",
-        "/pages/Technologies": "Tecnologías",
-        "/pages/Contact": "Contacto"
+        "#inicio": "Inicio",
+        "#proyectos": "Proyectos",
+        "#tecnologias": "Tecnologías",
+        "#contacto": "Contacto"
     }; 
 
     return Pages[path] || "Inicio"; //Por defecto devolver inicio. 
