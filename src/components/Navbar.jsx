@@ -8,6 +8,7 @@ import { BsSun } from "react-icons/bs";
 import { useTheme }  from "../hooks/useTheme";
 import { Pages } from "../data/pageLinks";
 
+/* SE RE-RENDERIZA CUANDO UNO DE LOS ESTADOS ASOCIADOS A ESTE COMPONENTE CAMBIA. EJEMPLO EL OPTION EN EL CUSTOM HOOK. */
 
 export const NavBar = () => {
     //Custom hook para el tema:
@@ -18,6 +19,7 @@ export const NavBar = () => {
     const [isClosing, setIsClosing] = useState(true);
     //Custom hook para saber que opción esta clickeada del navbar:
     const { option } = useOption(); 
+    console.log("Option changed: ", option); // Añadir para depurar
 
     return(
         <>
