@@ -1,22 +1,19 @@
 import { useState, useEffect,  useRef } from "react";
-
 import { Pages } from "../data/pageLinks";
 
 
-export function useOption (){ 
-    //Me da la URL actual:
-  
-    const [option, setOption] = useState("Inicio"); 
+export function useSection (){ 
+    const [activeSection, setActiveSection] = useState("Inicio"); 
 
     //Configuro las referencias para relacionar con los elementos que quiero observar: Es un objeto mutable que me ofrece React
     const sectionsRef = useRef([]);
 
-
     useEffect(() => {
-        /* Quiero que la option cambie mientras observo las secciones: */
+        /* Quiero que la activeSection cambie mientras observo las secciones: */
         const observer = new IntersectionObserver((entries) => {
             /* Entry es un objeto con info sobre ese elemento del DOM. Usar propiedad target para acceder a él.  */
             entries.forEach((entry) => {
+                //Si es visible:
                 if(entry.isIntersecting){
                     console.log(`La sección ${entry.target.id} está visible`);
                     /* SI es visible este elemento, hago algo con él: */
@@ -25,9 +22,12 @@ export function useOption (){
                     const section = Pages.find(page => page.path === `#${sectionId}`);
                     // Si el objeto se encuentra, obtengo el label; si no, devuelvo "Inicio"
                     const namePath = section ? section.label : "Inicio";
-                    setOption(namePath); // Cambio la opción
-                    console.log(`he cambiado la option y deberia re renderizarse a ${namePath}`);
+                    setActiveSection(namePath); // Cambio la opción
+                    console.log(`he cambiado la activeSection y deberia re renderizarse a ${namePath}`);
+                    
                 }
+                
+                
             });
         }, /* PONER LAS CONFIGURACIONES PARA QUE EL CALLBACK SE EJECUTE:  */
             { threshold: 0.5 } 
@@ -43,9 +43,9 @@ export function useOption (){
             observer.disconnect(); // Desconectar el observer de todos los elementos. 
         }
 
-    }, []);
+    }, []); 
 
   
 
-    return { option, sectionsRef }
+    return { activeSection, sectionsRef }
 } 

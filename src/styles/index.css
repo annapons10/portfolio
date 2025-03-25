@@ -11,6 +11,7 @@
   --color-texto: oklch(0.37 0.013 285.805);
   --color-acento: #00A8E8;
   --color-morado: #8A2BE2;
+  --color-fondo-nav:oklch(0.968 0.007 247.896/ 0.8);
   /* Hacer linear gradient separador de secciones: */
   --color-gradient: linear-gradient(to right, #985 0%, #854885 50%, #985 100%);
 }
@@ -18,8 +19,9 @@
 /* Modo oscuro */
  .dark {
   --color-fondo: oklch(0.21 0.006 285.885);
+  --color-fondo-nav:oklch(0.21 0.006 285.885/ 0.8);
   --color-tarjetas: yellow;
-  --color-texto: oklch(0.704 0.04 256.788);
+  --color-texto: oklch(0.985 0.001 106.423);
   --color-acento: #00A8E8;
   --color-morado: #8A2BE2;
   --color-gradient: linear-gradient(to right, #ffffff00 0%, #ffffff80 50%, #ffffff00 100%);
