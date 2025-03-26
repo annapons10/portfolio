@@ -51,8 +51,8 @@ export const NavBar = ({ activeSection }) => {
 
             {/* NAV */}
             {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
-            <nav className={` bg-[var(--color-fondo-nav)]  fixed right-0 top-0 transition-transform duration-800 ease-in-out w-1/4 mr-12
-                ${isOpen ? "translate-x-0 " : "translate-x-full"} lg:w-full lg:h-20 lg:translate-x-0`}>
+            <nav className={` bg-[var(--color-fondo-nav)]  fixed right-0 top-0 transition-transform duration-800 ease-in-out 
+                ${isOpen ? "translate-x-0 w-auto " : "translate-x-full"} lg:w-full lg:h-20 lg:translate-x-0`}>
 
 
 
@@ -69,7 +69,8 @@ export const NavBar = ({ activeSection }) => {
                                 smooth
                                 onClick={() => setIsOpen(!isOpen)}
                                 to={path}  // o el id correspondiente de la sección
-                                className={`text-2xl font-bold lg:font-light ${activeSection === label ? "italic text-3xl" : ""}`}
+                                className={`transition-all duration-400 ease-in-out  text-2xl font-bold lg:font-light hover:italic hover:text-3xl ${isOpen ? "m-4" : ""}
+                                ${activeSection === label ? "italic text-3xl" : ""}`}
                             >
                                 {label}
                             </HashLink>
