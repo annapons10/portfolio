@@ -2,6 +2,7 @@ import fotoPerfil from '../assets/anna.jpg';
 import { ProjectCard } from '../components/ProjectCard';
 import { Projects } from '../data/infoProjects';
 import { Technologies } from '../data/technologies';
+import { RedesSociales } from '../data/redesSociales';
 
 export const MainLayout = ({ sectionsRef }) => {
 
@@ -45,7 +46,7 @@ export const MainLayout = ({ sectionsRef }) => {
                     
                     {Projects.map((project) => {
                         return (
-                            <a className='transition-all duration-400 ease-in-out hover:scale-105' href={project.url}>
+                            <a className='transition-transform duration-400 ease-in-out hover:scale-105' href={project.url}>
                                 <ProjectCard name={project.name} image={project.image} description={project.description} technologies={project.technologies} />
                             </a>
                         )
@@ -55,7 +56,7 @@ export const MainLayout = ({ sectionsRef }) => {
 
             </section>
 
-            {/*   <div className="w-[70%] h-px bg-[var(--linear-gradient)] mx-auto"></div> */}
+            <div className="w-[70%] h-px bg-separador mx-auto mt-30"></div>
 
             {/* SECCIÓN TECNOLOGÍAS */}
             <section id='tecnologias' className="py-10" ref={(el) => (sectionsRef.current[2] = el)}>
@@ -82,15 +83,42 @@ export const MainLayout = ({ sectionsRef }) => {
 
             </section>
 
-            {/*   <div className="w-[70%] h-px bg-white mx-auto"></div> */}
+            <div className="w-[70%] h-px bg-separador mx-auto mt-30"></div>
+
             {/* SECCIÓN CONTACTO */}
             <section id='contacto' className="py-10" ref={(el) => (sectionsRef.current[3] = el)}>
-                
+                <div className='m-20'>
+                    <h2 className='text-5xl text-center '>Estoy siempre abierta a nuevas oportunidades y colaboraciones.</h2>
+                </div>
+
+                <div className='flex flex-col items-center gap-10 mx-10'>
+                    
+                    <p className='text-justify text-xl max-w-3xl leading-relaxed'>
+                        Si estás buscando una desarrolladora con experiencia en diversas tecnologías y que se adapta fácilmente a nuevas herramientas, estaré encantada de hablar sobre cómo puedo aportar a tu equipo.
+                    </p>
+                    <p className='text-justify text-xl max-w-3xl leading-relaxed'>
+                        Estoy en constante aprendizaje y avance, y siempre busco mejorar mis habilidades. Puedes contactarme fácilmente a través de mi email
+                        <span className='font-semibold'> developer@annaponsprojects.com </span>
+                        o enviarme un mensaje por LinkedIn. 
+                    </p>
+                    <p className='text-justify text-xl max-w-3xl leading-relaxed'>
+                        También puedes ver más sobre mi trabajo en mi GitHub. ¡Espero poder conectar pronto!
+                    </p>
+
+                    {/* Redes sociales */}
+                    <div className='flex flex-col lg:flex-row gap-10'>
+                    {RedesSociales.map((red) => {
+                        return(
+                            <a key={red.nombre} href={red.url}  className="text-6xl transition-transform duration-400 ease-in-out hover:scale-150">
+                                {red.icono}
+                            </a>
+                        )
+                    })}
+                    </div>
+
+                </div>
             </section>
 
-            <div className="bg-mint-500 w-20 h-20 rounded-full">
-
-            </div>
         </main>
     );
 
