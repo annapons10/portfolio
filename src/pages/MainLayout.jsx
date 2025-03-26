@@ -1,6 +1,7 @@
 import fotoPerfil from '../assets/anna.jpg';
 import { ProjectCard } from '../components/ProjectCard';
 import { Projects } from '../data/infoProjects';
+import { Technologies } from '../data/technologies';
 
 export const MainLayout = ({ sectionsRef }) => {
 
@@ -58,7 +59,27 @@ export const MainLayout = ({ sectionsRef }) => {
 
             {/* SECCIÓN TECNOLOGÍAS */}
             <section id='tecnologias' className="py-10" ref={(el) => (sectionsRef.current[2] = el)}>
-                
+                <div className='flex items-center justify-center m-20'>
+                    <h2 className='text-5xl '>Tecnologías</h2>
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-20 lg:flex-row lg:flex-wrap lg:gap-20 mx-5">
+                {Technologies.map((tech) => {
+                    return (
+                            <div className="flex flex-col relative gap-4  items-center justify-center  text-8xl group">
+                                <div className='group-hover:opacity-10 transition-opacity duration-300'>
+                                    {tech.simbolo}
+                                </div>
+                                {/* Nombre de la tecnología, oculto inicialmente */}
+                                <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-300  font-extrabold text-2xl">
+                                    {tech.nombre}
+                                </div>
+                            </div>
+                      
+                    )
+                })}
+                </div>
+
             </section>
 
             {/*   <div className="w-[70%] h-px bg-white mx-auto"></div> */}
