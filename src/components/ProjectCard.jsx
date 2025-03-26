@@ -1,7 +1,7 @@
 export const ProjectCard = ({ name, image, description, technologies}) => {
     return(
         <>
-            <figure className="border border-white-500 rounded-2xl shadow-[var(--color-shadow-tarjed-project)] overflow-hidden max-w-md ">
+            <figure className="border border-[var(--color-border-tarjed-project)] rounded-2xl shadow-[var(--color-shadow-tarjed-project)] overflow-hidden max-w-md ">
                 <h2 className="text-center text-3xl  m-7.5"> { name } </h2>
                 <div className="relative w-full h-48 mb-8">
                     {/* Imágen fondo: */}

@@ -33,7 +33,7 @@ export const MainLayout = ({ sectionsRef }) => {
             </section>
 
 
-            <div className="w-[70%] h-px bg-separador mx-auto"></div>
+            <div className="w-[70%] h-px bg-separador mx-auto mt-20"></div>
 
             {/* SECCIÓN PROYECTOS */}
             <section id='proyectos' ref={(el) => (sectionsRef.current[1] = el)} >

@@ -3,6 +3,7 @@ import { NavBar } from './components/Navbar';  /* ---->Esto va en todas las pág
 import { MainLayout } from './pages/MainLayout';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSection } from './hooks/useSection';
+import { Footer } from './components/Footer';
 
 function App() {
   const { activeSection, sectionsRef } = useSection(); // Llamamos al custom hook useSection
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainLayout sectionsRef={sectionsRef}/>} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )

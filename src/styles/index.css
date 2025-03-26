@@ -6,27 +6,24 @@
 /* MODO CLARO: */
 @theme {
   --color-fondo: oklch(0.968 0.007 247.896);
-  --color-fondo: oklch(0.968 0.007 247.896);
-  --color-tarjetas: green;
-  --color-texto: oklch(0.37 0.013 285.805);
-  --color-acento: #00A8E8;
-  --color-morado: #8A2BE2;
+  --color-texto: oklch(0.147 0.004 49.25);
   --color-fondo-nav:oklch(0.968 0.007 247.896/ 0.8);
-  --color-shadow-tarjed-project: oklch(0.442 0.017 285.786);
+  --color-fondo-footer:oklch(0.554 0.046 257.417 /0.1);
+  --color-shadow-tarjed-project: 0 4px 6px oklch(0.446 0.043 257.281);
+  --color-border-tarjed-project: oklch(0.147 0.004 49.25);
   /* Hacer linear gradient separador de secciones: */
-  --color-gradient: linear-gradient(to right, #985 0%, #854885 50%, #985 100%);
+  --color-gradient: linear-gradient(to right, #00000000 0%, #000000b3 50%, #00000000 100%);
 }
 
 /* Modo oscuro */
  .dark {
   --color-fondo: oklch(0.21 0.006 285.885);
   --color-fondo-nav:oklch(0.21 0.006 285.885/ 0.8);
-  --color-tarjetas: yellow;
   --color-texto: oklch(0.985 0.001 106.423);
-  --color-acento: #00A8E8;
-  --color-morado: #8A2BE2;
   --color-gradient: linear-gradient(to right, #ffffff00 0%, #ffffff80 50%, #ffffff00 100%);
   --color-shadow-tarjed-project: 0 2px 4px oklch(0.929 0.013 255.508);
+  --color-border-tarjed-project: oklch(0.985 0.001 106.423);
+  --color-fondo-footer:oklch(0.284 0.109 3.907 /0.1);
 }
 
 /* ESTILOS GLOBALES, se importa en main.jsx */
@@ -38,7 +35,7 @@
 /* Estilos globales */
 body {
   font-family: "Poppins", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
   font-style: normal;
   background-color: var(--color-fondo);
   color: var(--color-texto);
