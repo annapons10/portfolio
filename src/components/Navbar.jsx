@@ -70,7 +70,7 @@ export const NavBar = ({ activeSection }) => {
                                 onClick={() => setIsOpen(!isOpen)}
                                 to={path}  // o el id correspondiente de la sección
                                 className={`transition-all duration-400 ease-in-out  text-2xl font-bold lg:font-light hover:italic hover:text-3xl ${isOpen ? "m-4" : ""}
-                                ${activeSection === label ? "italic text-3xl" : ""}`}
+                                ${activeSection === label ? "italic text-4xl" : ""}`}
                             >
                                 {label}
                             </HashLink>

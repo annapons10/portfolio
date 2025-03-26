@@ -1,8 +1,10 @@
-import fotoPerfil from '../assets/anna.jpg';
+import fotoPerfil from '../assets/annaa.gif';
 import { ProjectCard } from '../components/ProjectCard';
 import { Projects } from '../data/infoProjects';
 import { Technologies } from '../data/technologies';
 import { RedesSociales } from '../data/redesSociales';
+import { FaCode } from "react-icons/fa";
+
 
 export const MainLayout = ({ sectionsRef }) => {
 
@@ -25,10 +27,12 @@ export const MainLayout = ({ sectionsRef }) => {
                         </p>
                     </article>
 
-                    {/* Imagen */}
-                    <div className="mt-6 sm:mt-8 ">
-                        <img className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-full" src={fotoPerfil} alt="Foto de perfil" />
-                    </div>
+                    <FaCode className=' text-6xl lg:text-9xl'/>
+
+                    {/* Imagen mía futura */}
+                    {/* <div className="mt-6 sm:mt-8 ">
+                        <img className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-52 object-cover rounded-full" src={fotoPerfil} alt="Foto de perfil" />
+                    </div> */}
                 </div>
             </section>
 
