@@ -1,4 +1,3 @@
-import './styles/App.css'
 import { NavBar } from './components/Navbar';  /* ---->Esto va en todas las páginas menos aquí.  */
 import { MainLayout } from './pages/MainLayout';
 import { BrowserRouter, Routes, Route } from "react-router-dom";

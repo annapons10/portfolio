@@ -1,9 +1,7 @@
 @import "tailwindcss" ; 
 
-
-
-@import "tailwindcss";
 /* MODO CLARO: */
+
 @theme {
   --color-fondo: oklch(0.968 0.007 247.896);
   --color-texto: oklch(0.147 0.004 49.25);
@@ -13,6 +11,7 @@
   --color-border-tarjed-project: oklch(0.147 0.004 49.25);
   /* Hacer linear gradient separador de secciones: */
   --color-gradient: linear-gradient(to right, #00000000 0%, #000000b3 50%, #00000000 100%);
+  --color-hover:oklch(0.271 0.105 12.094);
 }
 
 /* Modo oscuro */
@@ -24,6 +23,7 @@
   --color-shadow-tarjed-project: 0 2px 4px oklch(0.929 0.013 255.508);
   --color-border-tarjed-project: oklch(0.985 0.001 106.423);
   --color-fondo-footer:oklch(0.284 0.109 3.907 /0.1);
+  --color-hover:oklch(0.985 0.001 106.423);
 }
 
 /* ESTILOS GLOBALES, se importa en main.jsx */
@@ -33,16 +33,18 @@
 }
 
 /* Estilos globales */
-body {
+html,body {
+  width:100%;
+  height: 100vh;
+  overflow-x: hidden; 
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-style: normal;
   background-color: var(--color-fondo);
   color: var(--color-texto);
-  height: 100vh; 
   /* Transition para el cambio de tema: */
   transition: background-color 0.8s ease, color 0.8s ease;      
-  height: auto;   
+ 
 }
 
 a {

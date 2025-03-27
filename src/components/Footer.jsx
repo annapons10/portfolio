@@ -1,11 +1,14 @@
 export const Footer = () => {
     return (
-      <footer className=" flex flex-col items-center justify-center mt-20 bg-[var(--color-fondo-footer)] h-30 ">
-        <p className="text-lg ">&copy; {new Date().getFullYear()} Anna Pons. Todos los derechos reservados.</p>
-        <p className="text-sm mt-2">
-          Contacto: <a href="mailto:developer@annaponsprojects.com" className="underline hover:text-gray-400">developer@annaponsprojects.com</a>
-        </p>
-      </footer>
-    );
-  };
+          <footer className="flex flex-col items-center justify-center bg-[var(--color-fondo-footer)] h-30 w-screen mt-20">
+            <p className="text-lg sm:text-xl md:text-2xl text-center">
+            &copy; {new Date().getFullYear()} Anna Pons. Todos los derechos reservados.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg">
+              Contacto: <a href="mailto:developer@annaponsprojects.com" className="hover:font-bold color[var(--color-hover)]">developer@annaponsprojects.com</a>
+            </p>
+        </footer>
+
+        );
+};
   

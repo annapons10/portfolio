@@ -20,26 +20,28 @@ export const NavBar = ({ activeSection }) => {
     return (
         <>
             {/* Menú hamburguesa (fuera del nav, para que no se mueva con el menú) */}
-            <div className="absolute fixed z-1 top-4 right-4 lg:hidden">
-                <button className="lg:hidden w-14 h-14 relative p-4" onClick={() => {
-                    //Los estados son asíncronos, realizo una función para asegurarme que se cambian correctamente el setIsOpen y setIsClosing.  
-                    //set..Pueden recibir funciones como parámetro.
-                    setIsOpen(!isOpen);
-                }}>
-                    <TfiClose
-                        className={`absolute ${isOpen ? 'block' : 'hidden'}`}
-                        size={40}
-                    />
-                    {/* Icono de menú hamburguesa */}
-                    <TfiAlignJustify
-                        className={`absolute ${isOpen ? 'hidden' : 'block'}`}
-                        size={40}
-                    />
-                </button>
+            <div className="relative flex">
+                <div className="absolute  z-1 top-4 right-4 lg:hidden">
+                    <button className="lg:hidden w-14 h-14 relative p-4" onClick={() => {
+                        //Los estados son asíncronos, realizo una función para asegurarme que se cambian correctamente el setIsOpen y setIsClosing.  
+                        //set..Pueden recibir funciones como parámetro.
+                        setIsOpen(!isOpen);
+                    }}>
+                        <TfiClose
+                            className={`absolute ${isOpen ? 'block' : 'hidden'}`}
+                            size={40}
+                        />
+                        {/* Icono de menú hamburguesa */}
+                        <TfiAlignJustify
+                            className={`absolute ${isOpen ? 'hidden' : 'block'}`}
+                            size={40}
+                        />
+                    </button>
+                </div>
             </div>
 
             {/* Botón cambio de theme: */}
-            <div className="absolute fixed z-1 top-2 left-4 ml-6">
+            <div className="absolute  z-1 top-2 left-4 ml-6">
                 <button className="relative" onClick={() => { changeTheme() }}>
                     <BsMoon className={`text-4xl absolute  ${theme === "light" ? "block" : "hidden"}`} />
                     <BsSun className={`text-5xl absolute ${theme === "light" ? "hidden" : "block"}`} />
@@ -47,12 +49,12 @@ export const NavBar = ({ activeSection }) => {
             </div>
 
             {/* FONDO TRANSPARENTE SI EL MENÚ ESTA ABIERTO: */}
-            <div className={`${isOpen ? " absolute w-full top-0 left-0 h-screen backdrop-blur-sm" : "hidden"} lg:hidden`} />
+            <div className={`${isOpen ? " fixed w-screen top-0 left-0 h-screen backdrop-blur-sm" : "hidden"} lg:hidden`} />
 
             {/* NAV */}
             {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
-            <nav className={` bg-[var(--color-fondo-nav)]  fixed right-0 top-0 transition-transform duration-800 ease-in-out 
-                ${isOpen ? "translate-x-0 w-auto " : "translate-x-full"} lg:w-full lg:h-20 lg:translate-x-0`}>
+            <nav className={` bg-[var(--color-fondo-nav)]  fixed right-0 top-0  transition-transform duration-800 ease-in-out 
+                ${isOpen ? "translate-x-0 " : "translate-x-full "} lg:w-full lg:h-20 lg:translate-x-0`}>
 
 
 
