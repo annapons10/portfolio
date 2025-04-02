@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useSection } from './hooks/useSection';
 import { Footer } from './components/Footer';
 import { useEffect } from 'react';
+import { FollowMouse } from './components/MouseFollower'; 
 
 /* Librería de animaciones: */
 import AOS from 'aos';
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
       <BrowserRouter>  {/* Aquí envolvemos la aplicación en BrowserRouter */}
+        < FollowMouse />
         <NavBar  activeSection={activeSection}/>
         <Routes>
           <Route path="/" element={<MainLayout sectionsRef={sectionsRef}/>} />
