@@ -3,9 +3,11 @@ import { Projects } from '../data/infoProjects';
 import { Technologies } from '../data/technologies';
 import { RedesSociales } from '../data/redesSociales';
 import { FaCode } from "react-icons/fa";
+import AOS from 'aos';
 
 
 export const MainLayout = ({ sectionsRef }) => {
+
 
     return (
         /* Sección de presentación: */
@@ -16,17 +18,17 @@ export const MainLayout = ({ sectionsRef }) => {
                 lg:grid lg:grid-cols-2 lg:grid-rows-1 lg:place-items-center lg:h-96 lg:ml-20">
                     <article className="text-center flex flex-col items-center gap-10">
                         {/* Título */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold">
+                        <h1 data-aos="fade-right" className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold">
                             ANNA PONS
                         </h1>
 
                         {/* Descripción */}
-                        <p className="text-2xl md:text-3xl  max-w-xs font-normal">
+                        <p data-aos="fade-right" data-aos-delay="300" className="text-2xl md:text-3xl  max-w-xs font-normal">
                             DESARROLLADORA DE SOFTWARE, FRONTEND Y DE APLICACIONES.
                         </p>
                     </article>
 
-                    <FaCode className=' text-6xl lg:text-9xl'/>
+                    <FaCode data-aos="fade-left" data-aos-delay="300" className=' text-6xl lg:text-9xl'/>
 
                     {/* Imagen mía futura */}
                     {/* <div className="mt-6 sm:mt-8 ">
@@ -49,8 +51,8 @@ export const MainLayout = ({ sectionsRef }) => {
                     
                     {Projects.map((project) => {
                         return (
-                            <a className='   transition-transform duration-400 ease-in-out hover:scale-105' href={project.url}>
-                                <ProjectCard name={project.name} image={project.image} description={project.description} technologies={project.technologies} />
+                            <a key={project.name}   className='transition-transform duration-400 ease-in-out hover:scale-105' href={project.url}>
+                                <ProjectCard  name={project.name} image={project.image} description={project.description} technologies={project.technologies} />
                             </a>
                         )
                     })}
@@ -70,7 +72,7 @@ export const MainLayout = ({ sectionsRef }) => {
                 <div className="flex flex-col items-center justify-center gap-10 lg:flex-row lg:flex-wrap lg:gap-20 mx-5">
                 {Technologies.map((tech) => {
                     return (
-                            <div className="flex flex-col relative gap-4  items-center justify-center  text-8xl group">
+                            <div key={tech.nombre} className="flex flex-col relative gap-4  items-center justify-center  text-8xl group">
                                 <div className='group-hover:opacity-10 transition-opacity duration-300'>
                                     {tech.simbolo}
                                 </div>
@@ -85,6 +87,8 @@ export const MainLayout = ({ sectionsRef }) => {
                 </div>
 
             </section>
+
+          
 
             <div className="w-[70%] h-px bg-separador mx-auto mt-30"></div>
 

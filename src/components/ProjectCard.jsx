@@ -7,13 +7,13 @@ export const ProjectCard = ({ name, image, description, technologies}) => {
                     {/* Imágen fondo: */}
                     <img className="object-cover w-full h-full " src={ image } alt={`Imágen del proyecto ${name}`} />
                     {/* Capa desenfoque: */}
-                    <div class="absolute top-0 left-0 w-full h-full backdrop-blur-sm"></div>
+                    <div className="absolute top-0 left-0 w-full h-full backdrop-blur-sm"></div>
                 </div>
                 <figcaption className="text-center text-2xl  m-6"> { description }  </figcaption>
                 <div className="flex justify-center flex-wrap gap-2 m-8">
                     {technologies.map((technology, index) => {
                         return (
-                            <span key={index} className="text-white"> #{technology} </span>
+                            <span key={index}> #{technology} </span>
                         )
                     })}
                 </div>

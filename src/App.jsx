@@ -10,11 +10,13 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 function App() {
-  const { activeSection, sectionsRef } = useSection(); // Llamamos al custom hook useSection
   /* Inicializar las animaciones: */
-    useEffect(() => {
-      AOS.init({ duration: 1000 }); // Puedes ajustar la duración y otras opciones
-    }, []);
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: "ease-in-out" });
+  }, []);
+  
+  const { activeSection, sectionsRef } = useSection(); // Llamamos al custom hook useSection
+  
 
   return (
     <>
