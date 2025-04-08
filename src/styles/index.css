@@ -32,7 +32,6 @@
 * {
   padding: 0;
   box-sizing: border-box; 
-  cursor: none;
 }
 
 /* Estilos globales */
@@ -58,3 +57,11 @@ a {
 .bg-separador {
   background: var(--color-gradient);
 }
+
+
+/* Para el cursor personalizado cuando la pantalla es lg: */
+@media (min-width: 1024px) {
+  * {
+    cursor: none;
+  }
+} 

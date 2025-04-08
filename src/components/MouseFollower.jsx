@@ -24,7 +24,7 @@ export function FollowMouse (){
     }, []);
 
     return (
-        <div className="absolute z-5 bg-[var(--color-pointer)] rounded-full pointer-events-none cursor-none w-10 h-10 -left-5 -top-5"
+        <div className="lg:absolute lg:z-5 lg:bg-[var(--color-pointer)] lg:rounded-full lg:pointer-events-none  lg:w-10 lg:h-10 lg:-left-5 lg:-top-5"
             //Tailwind no permite leer valores dinámicos, poro eso le pongo style: 
             style={{
               transform: `translate(${position.x}px, ${position.y}px)` // Aplica la transformación
