@@ -12,10 +12,11 @@
   /* Hacer linear gradient separador de secciones: */
   --color-gradient: linear-gradient(to right, #00000000 0%, #000000b3 50%, #00000000 100%);
   --color-hover:oklch(0.271 0.105 12.094);
+  --color-pointer: oklch(0.279 0.041 260.031 / 0.8);
 }
 
 /* Modo oscuro */
- .dark {
+.dark {
   --color-fondo: oklch(0.21 0.006 285.885);
   --color-fondo-nav:oklch(0.21 0.006 285.885/ 0.8);
   --color-texto: oklch(0.985 0.001 106.423);
@@ -24,12 +25,14 @@
   --color-border-tarjed-project: oklch(0.985 0.001 106.423);
   --color-fondo-footer:oklch(0.284 0.109 3.907 /0.1);
   --color-hover:oklch(0.985 0.001 106.423);
+  --color-pointer: oklch(0.704 0.04 256.788 / 0.8)
 }
 
 /* ESTILOS GLOBALES, se importa en main.jsx */
 * {
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; 
+  cursor: none;
 }
 
 /* Estilos globales */
@@ -43,8 +46,7 @@ html, body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
   /* Transition para el cambio de tema: */
-  transition: background-color 0.8s ease, color 0.8s ease;      
- 
+  transition: background-color 0.8s ease, color 0.8s ease;  
 }
 
 a {

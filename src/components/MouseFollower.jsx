@@ -24,17 +24,9 @@ export function FollowMouse (){
     }, []);
 
     return (
-        <div 
+        <div className="absolute z-5 bg-[var(--color-pointer)] rounded-full pointer-events-none cursor-none w-10 h-10 -left-5 -top-5"
+            //Tailwind no permite leer valores dinámicos, poro eso le pongo style: 
             style={{
-              position: 'absolute',
-              backgroundColor: '#09f',
-              borderRadius: '50%',
-              opacity: 0.8,
-              pointerEvents: 'none',
-              left: -20, 
-              top: -20,
-              width: '40px',
-              height: '40px',
               transform: `translate(${position.x}px, ${position.y}px)` // Aplica la transformación
             }} 
         />
