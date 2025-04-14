@@ -4,18 +4,13 @@ import { TfiClose } from "react-icons/tfi";
 import { HashLink } from 'react-router-hash-link';
 import { BsMoon } from "react-icons/bs";
 import { BsSun } from "react-icons/bs";
-import { useTheme } from "../hooks/useTheme";
 import { Pages } from "../data/pageLinks";
 
 /* SE RE-RENDERIZA CUANDO UNO DE LOS ESTADOS ASOCIADOS A ESTE COMPONENTE CAMBIA. EJEMPLO EL OPTION EN EL CUSTOM HOOK. */
 
-export const NavBar = ({ activeSection }) => {
-    //Custom hook para el tema:
-    const { theme, changeTheme } = useTheme();
+export const NavBar = ({ activeSection, theme, changeTheme }) => {
     //Estado menú hamburgesa:
-    const [isOpen, setIsOpen] = useState(false);
-
-    console.log(`isOpen: ${isOpen}`);
+    const [isOpen, setIsOpen] = useState(false); 
 
     return (
         <>
@@ -56,7 +51,7 @@ export const NavBar = ({ activeSection }) => {
             {/* NAV */}
             {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
             <header>
-                <nav className={` bg-[var(--color-fondo-nav)]  fixed  right-0 top-0  transition-transform duration-800 ease-in-out 
+                <nav data-aos="fade-down" className={` bg-[var(--color-fondo-nav)]  fixed  right-0 top-0  transition-transform duration-800 ease-in-out z-3
                     ${isOpen ? "translate-x-0 z-2 " : "translate-x-full "} lg:w-full lg:h-20 lg:translate-x-0`}>
 
 

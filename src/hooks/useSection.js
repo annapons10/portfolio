@@ -22,11 +22,8 @@ export function useSection (){
                     const section = Pages.find(page => page.path === `#${sectionId}`);
                     // Si el objeto se encuentra, obtengo el label; si no, devuelvo "Inicio"
                     const namePath = section ? section.label : "Inicio";
-                    setActiveSection(namePath); // Cambio la opción
-                    console.log(`he cambiado la activeSection y deberia re renderizarse a ${namePath}`);
-                    
+                    setActiveSection(namePath); // Cambio la opción.  
                 }
-                
                 
             });
         }, /* PONER LAS CONFIGURACIONES PARA QUE EL CALLBACK SE EJECUTE:  */

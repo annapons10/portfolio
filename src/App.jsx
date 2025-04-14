@@ -5,6 +5,7 @@ import { useSection } from './hooks/useSection';
 import { Footer } from './components/Footer';
 import { useEffect } from 'react';
 import { FollowMouse } from './components/MouseFollower'; 
+import { useTheme } from "./hooks/useTheme";
 
 /* Librería de animaciones: */
 import AOS from 'aos';
@@ -17,15 +18,17 @@ function App() {
   }, []);
   
   const { activeSection, sectionsRef } = useSection(); // Llamamos al custom hook useSection
+  //Custom hook para el tema:
+  const { theme, changeTheme } = useTheme();
   
 
   return (
     <>
       <BrowserRouter>  {/* Aquí envolvemos la aplicación en BrowserRouter */}
         < FollowMouse />
-        <NavBar  activeSection={activeSection}/>
+        <NavBar  activeSection={activeSection} theme={theme} changeTheme={changeTheme}/>
         <Routes>
-          <Route path="/" element={<MainLayout sectionsRef={sectionsRef}/>} />
+          <Route path="/" element={<MainLayout sectionsRef={sectionsRef} theme={theme}/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
