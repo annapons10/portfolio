@@ -16,7 +16,7 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
         <>
             {/* Menú hamburguesa (fuera del nav, para que no se mueva con el menú) */}
             <div className="relative flex">
-                <div className="absolute  z-3 top-4 right-4 lg:hidden">
+                <div className="absolute  z-4 top-4 right-4 lg:hidden">
                     <button className="lg:hidden w-14 h-14 relative p-4" onClick={() => {
                         //Los estados son asíncronos, realizo una función para asegurarme que se cambian correctamente el setIsOpen y setIsClosing.  
                         //set..Pueden recibir funciones como parámetro.
@@ -51,7 +51,7 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
             {/* NAV */}
             {/* HACER :HOVER CON COLOR Y CUANDO ESTA EN PANTALLA GRANDE QUE SE QUEDE CLICKEADO. */}
             <header>
-                <nav data-aos="fade-down" className={` bg-[var(--color-fondo-nav)]  fixed  right-0 top-0  transition-transform duration-800 ease-in-out z-3
+                <nav className={` bg-[var(--color-fondo-nav)]  fixed  right-0 top-0  transition-transform duration-800 ease-in-out z-3
                     ${isOpen ? "translate-x-0 z-2 " : "translate-x-full "} lg:w-full lg:h-20 lg:translate-x-0`}>
 
 
@@ -69,7 +69,7 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
                                     smooth
                                     onClick={() => setIsOpen(!isOpen)}
                                     to={path}  // o el id correspondiente de la sección
-                                    className={`transition-all duration-400 ease-in-out  text-2xl font-bold lg:font-light hover:italic hover:text-3xl ${isOpen ? "m-4" : ""}
+                                    className={`transition-all duration-400 ease-in-out  text-2xl sm:text-1xl font-bold lg:font-light hover:italic hover:text-3xl ${isOpen ? "m-4" : ""}
                                     ${activeSection === label ? "italic text-4xl" : ""}`}
                                 >
                                     {label}
