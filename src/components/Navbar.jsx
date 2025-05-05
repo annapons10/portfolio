@@ -37,8 +37,8 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
                 {/* Botón cambio de theme: */}
                 <div className="absolute  z-4 top-2 left-4 ml-6">
                     <button className="relative" onClick={() => { changeTheme() }}>
-                        <BsMoon className={`text-4xl absolute  ${theme === "light" ? "block" : "hidden"}`} />
-                        <BsSun className={`text-5xl absolute ${theme === "light" ? "hidden" : "block"}`} />
+                        <BsMoon aria-label="icono de luna" className={`text-4xl absolute  ${theme === "light" ? "block" : "hidden"}`} />
+                        <BsSun aria-label="icono de sol" className={`text-5xl absolute ${theme === "light" ? "hidden" : "block"}`} />
                     </button>
                 </div>
             </div>
