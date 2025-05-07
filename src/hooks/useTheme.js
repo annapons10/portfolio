@@ -14,8 +14,7 @@ export const useTheme = () => {
 
     const changeTheme = () => {
         const newTheme = theme === "light" ?  'dark' : 'light'; 
-        setTheme(newTheme);
-        console.log(`este es el tema ${newTheme}`);
+        setTheme(newTheme); 
     }
 
     return { theme, changeTheme }; 
