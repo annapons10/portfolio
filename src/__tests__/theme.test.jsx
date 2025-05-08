@@ -1,6 +1,7 @@
 //Comprobar que el tema cambia y que cambia el icono 
 import { NavBar } from "../components/Navbar";
 import { render, screen, waitFor } from "@testing-library/react";
+//Que funcionen los matchers:
 import '@testing-library/jest-dom';
 //Necesita el contexto para manejar las rutas, por eso lo envuelvo en BrowserRouter: 
 import { BrowserRouter } from 'react-router-dom';

@@ -64,7 +64,7 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
                                     lg:flex lg:justify-center lg:gap-x-10 lg:flex-row lg:h-auto 
                                     `}>
                         {Pages.map(({ path, label }) => (
-                            <li key={path} data-path={path}>
+                            <li key={path}>
                                 <HashLink
                                     smooth
                                     onClick={() => setIsOpen(!isOpen)}

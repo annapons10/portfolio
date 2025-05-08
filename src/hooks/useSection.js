@@ -15,9 +15,8 @@ export function useSection (){
             entries.forEach((entry) => {
                 //Si es visible:
                 if(entry.isIntersecting){
-                    console.log(`La sección ${entry.target.id} está visible`);
-                    /* SI es visible este elemento, hago algo con él: */
-                    const sectionId = entry.target.id; //Obtengo el id del elemento que es visible
+                    //Obtengo el id del elemento que es visible
+                    const sectionId = entry.target.id; 
                     // Busco el objeto que tenga el path que coincide con el id
                     const section = Pages.find(page => page.path === `#${sectionId}`);
                     // Si el objeto se encuentra, obtengo el label; si no, devuelvo "Inicio"
