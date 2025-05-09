@@ -65,6 +65,7 @@ export const NavBar = ({ activeSection, theme, changeTheme }) => {
                                     `}>
                         {Pages.map(({ path, label }) => (
                             <li key={path}>
+                                {/* Lo uso para scroll suave al hacer click a una sección: */}
                                 <HashLink
                                     smooth
                                     onClick={() => setIsOpen(!isOpen)}

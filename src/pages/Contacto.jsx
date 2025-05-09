@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 
 export const Contacto = forwardRef(({ }, ref) => {
     return (
-        <section id='contacto' className="py-10" ref={ref}>
+        <section id='contacto' className="py-10" ref={ref} >
             <div className='m-20'>
                 <h2 className='text-4xl lg:text-5xl text-center '>Estoy siempre abierta a nuevas oportunidades y colaboraciones.</h2>
             </div>

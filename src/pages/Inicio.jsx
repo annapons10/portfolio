@@ -8,6 +8,7 @@ export const Inicio = forwardRef(({ theme }, ref) => {
             id="inicio"
             className="py-10"
             ref={ref} // Pasa el ref aquí y la establece. 
+            data-testid="inicio"
         >
             <div className="flex flex-col items-center justify-center gap-8 sm:gap-12 lg:gap-20 lg:grid lg:grid-cols-2 lg:grid-rows-1 lg:place-items-center lg:h-96 lg:ml-20">
                 <article className="text-center flex flex-col items-center gap-10">

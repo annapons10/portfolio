@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 export const Proyectos = forwardRef(({}, ref) => {
     return (
         /* Sección de proyectos: */
-        <section id='proyectos' ref={ref} className="py-10"  >
+        <section id='proyectos' ref={ref} className="py-10" data-testid="proyectos">
 
             <div className='flex items-center justify-center m-20'>
                 <h2 className='text-5xl '>Mis proyectos</h2>
