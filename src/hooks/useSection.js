@@ -10,7 +10,9 @@ export function useSection (){
 
     useEffect(() => {
         /* Quiero que la activeSection cambie mientras observo las secciones: */
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(
+            //Callback, el nav lo llama automáticamente cuando el elem entra/sale del viewport:
+            (entries) => {
             /* Entry es un objeto con info sobre ese elemento del DOM. Usar propiedad target para acceder a él.  */
             entries.forEach((entry) => {
                 //Si es visible:
@@ -29,8 +31,9 @@ export function useSection (){
             { threshold: 0.5 } 
         );
 
-        /* Llamo a ese observer con los elementos que quiero que observe: */
+        /* Registro los elementos que quiero que observe: */
         sectionsRef.current.forEach((section) => {
+            //Llamo al objeto que tiene la instancia: 
             observer.observe(section);
         });
 
