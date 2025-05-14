@@ -1,8 +1,9 @@
 
 import { useSection } from "../hooks/useSection";
 import { describe, it, expect, beforeAll, vi } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import '@testing-library/jest-dom';
+import { useEffect, useState } from "react";
 
 
 
@@ -16,7 +17,7 @@ describe("UseSection", () => {
         globalThis.IntersectionObserver = vi.fn().mockImplementation((callback) => {
             //Método que simula la sección ha entrado en el viewport:
             triggerIntersection = (isIntesecting, targetId) => {
-                //Llama al callback manualmente real que se haya defincdo en l useSection.js :
+                //Llama al callback manualmente real que se haya defincdo en el useSection.js :
                 callback([{isIntesecting, target: {id:targetId}}]);
             }
             //para que pueda usar los métodos del custom hook y poder comprobar que se han llamado desde el test: 
@@ -51,6 +52,15 @@ describe("UseSection", () => {
         //Usar el mock para observar las secciones y cambiarlas manualmente y ver que activeSection cambia: 
         function WrapperUseSection (){
             const { activeSection, sectionsRef } = useSection();
+            const [render, setRender] = useState(false);
+
+            //Creo un useEffect para relacionar y cada ve que activeSection cambie, cambie el render(provocar el re-render):
+            useEffect(()=> {
+                
+                setRender(prev => !prev);
+
+            },[activeSection])
+        
             return(
                 <>
                 {/* Manualmente creo las páginas con las refs: */}
@@ -70,11 +80,23 @@ describe("UseSection", () => {
             <WrapperUseSection />
         )
 
-        triggerIntersection(true, "proyectos");
+        //Compruebo que inicio aparece dos veces, span(activa) y section: 
+        const firstActiveSection = screen.getAllByText("Inicio");
+        expect(firstActiveSection).toHaveLength(2);
+
+        
+        //Con act para asegurarme de que hace los cambios (re-renders), se complenten antes de seguir con el test: 
+        act(() => {
+            triggerIntersection(true, "proyectos");
+        });
+
 
         await waitFor(() => {
-            const activeSection = screen.getByText("Proyectos");
-            expect(activeSection).toBeInTheDocument();
+            //Ahora aparecerá proyectos dos veces: 
+            const activeSection = screen.getAllByText("Proyectos");
+            expect(activeSection).toHaveLength(2);
+            //Compruebo que ahora solo existe inicio una vez de la section: 
+            expect(firstActiveSection).toHaveLength(1);
         })
 
     });
